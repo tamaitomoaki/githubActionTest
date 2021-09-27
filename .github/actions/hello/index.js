@@ -13,8 +13,8 @@ const main = async () => {
   const mention = loadYamlFile(path.join(__dirname, '../../mention-to-slack.yml'));
   // レビュワー取得、メンション設定
   try {
-    if (github.context.payload.pull_request.requested_reviewers.length !== 0) {
-      const reviewer = github.context.payload.pull_request.requested_reviewers[0].login
+    if (github.context.payload.issue.assignees.length !== 0) {
+      const reviewer = github.context.payload.issue.assignees[0].login
       core.setOutput('mention', `<@${mention[reviewer]}>`);
     } else {
       core.setOutput('mention', `<@U51QZQFV0>`);

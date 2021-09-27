@@ -17,3 +17,29 @@ jobs:
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
+      - name: notification
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
+        with:
+          text: Successfully automated deployment.
+          blocks: |
+            [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "issueにアサインされました。ご確認お願いいたします。"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "${{ steps.hello.outputs.mention }}"
+                }
+              },
+              {
+                "type": "divider"
+              },
+            ]
