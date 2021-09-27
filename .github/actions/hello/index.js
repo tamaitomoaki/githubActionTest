@@ -15,9 +15,10 @@ const main = async () => {
   try {
     if (github.context.payload.issue.assignees.length !== 0) {
       const reviewer = github.context.payload.issue.assignees[0].login
-      core.setOutput('mention', `<@${mention[reviewer]}>`);
+      console.log(reviewer)
+      // core.setOutput('mention', `<@${mention[reviewer]}>`);
     } else {
-      core.setOutput('mention', `<@U51QZQFV0>`);
+      // core.setOutput('mention', `<@U51QZQFV0>`);
     }
   } catch (err) {
     console.error(err.message);
