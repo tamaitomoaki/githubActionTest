@@ -1,7 +1,9 @@
 name: "units-test"
 on:
-  issues:
-    types: [assigned]
+  pull_request:
+    types: [labeled]
+  # issues:
+  #   types: [assigned]
 
 jobs:
   build:
@@ -11,6 +13,6 @@ jobs:
       - name: Slack Notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
-          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
+          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
         with:
           text: Hello, Slack!
