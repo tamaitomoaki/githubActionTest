@@ -15,7 +15,7 @@ jobs:
       - name: notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
-          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
+          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
         with:
           text: Successfully automated deployment.
           blocks: |
