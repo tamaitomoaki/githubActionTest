@@ -32,14 +32,4 @@ jobs:
                   "text": "issueにアサインされました。ご確認お願いいたします。"
                 }
               },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "${{ steps.hello.outputs.mention }}"
-                }
-              },
-              {
-                "type": "divider"
-              },
             ]
