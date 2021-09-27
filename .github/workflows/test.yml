@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Hello
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
       - name: run hello action
         uses: ./.github/actions/hello # Uses an action in the root directory
         id: hello
