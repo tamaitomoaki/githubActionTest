@@ -8,9 +8,52 @@ jobs:
     runs-on: ubuntu-latest
     name: Hello
     steps:
-      - name: Slack Notification
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: run hello action
+        uses: ./.github/actions/hello # Uses an action in the root directory
+        id: hello
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - name: notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.TEST }}
         with:
-          text: Hello, Slack!
+          text: Successfully automated deployment.
+          blocks: |
+            [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "issueにアサインされました。ご確認お願いいたします。"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "${{ steps.hello.outputs.mention }}"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "<${{ steps.hello.outputs.notionUrl }}|${{ steps.hello.outputs.notionTitle }}>"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "```作成者：${{ github.event.pull_request.user.login }} \nテスト環境：${{ steps.hello.outputs.dev_url }} \nプルリクエストURL：${{ github.event.pull_request.html_url }}```"
+                }
+              },
+              {
+                "type": "divider"
+              },
+            ]
