@@ -14,6 +14,9 @@ jobs:
           ref: main
       - name: run assignToIssue action
         uses: ./.github/actions/assignToIssue # Uses an action in the root directory
+        id: hello
+        with:
+          who-to-greet: 'Mona the Octocat'
       - name: notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
@@ -33,7 +36,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "${{ steps.assignToIssue.outputs.mention }}"
+                  "text": "${{ steps.hello.outputs.mention }}"
                 }
               },
               {
