@@ -9,6 +9,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
   mention:
+    description: 'target'
 runs:
   using: 'node12'
   main: 'index.js'
