@@ -43,7 +43,14 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "<${{ github.context.payload.issue.html_url }}|${{ github.context.payload.issue.title }}>"
+                  "text": "<${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "```作成者：${{ github.event.pull_request.user.login }} \nテスト環境：${{ steps.hello.outputs.dev_url }} \nプルリクエストURL：${{ github.event.pull_request.html_url }}```"
                 }
               },
               {

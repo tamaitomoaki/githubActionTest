@@ -6,6 +6,7 @@ const path = require('path');
 const main = async () => {
   console.log('確認')
   console.log(github.context.payload.issue)
+  console.log(github.context.payload.issue.html_url)
   console.log(github.context.payload.issue.assignee.login)
   console.log(github.context.payload.issue.assignees)
   console.log('確認')
