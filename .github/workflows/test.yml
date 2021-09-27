@@ -6,17 +6,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Hello
+    name: Assign to issue
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           ref: main
-      - name: run hello action
-        uses: ./.github/actions/hello # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
+      - name: run assignToIssue action
+        uses: ./.github/actions/assignToIssue # Uses an action in the root directory
       - name: notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
@@ -44,13 +41,6 @@ jobs:
                 "text": {
                   "type": "mrkdwn",
                   "text": "<${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>"
-                }
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "```作成者：${{ github.event.pull_request.user.login }} \nテスト環境：${{ steps.hello.outputs.dev_url }} \nプルリクエストURL：${{ github.event.pull_request.html_url }}```"
                 }
               },
               {
