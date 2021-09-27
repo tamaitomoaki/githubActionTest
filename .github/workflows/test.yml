@@ -14,3 +14,4 @@ jobs:
           ref: main
       - run: git status
       - run: git branch
+      - run: pwd
