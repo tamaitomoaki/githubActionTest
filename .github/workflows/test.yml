@@ -24,7 +24,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "issueにアサインされました。ご確認お願いいたします。"
+                  "text": "issueにアサインされました。ご確認お願いいたします。",
                 }
               },
               {
