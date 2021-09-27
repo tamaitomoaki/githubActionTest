@@ -15,7 +15,7 @@ jobs:
       - name: notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
-          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
+          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
         with:
           text: Successfully automated deployment.
           blocks: |
@@ -24,10 +24,10 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "issueにアサインされました。ご確認お願いいたします。",
+                  "text": "issueにアサインされました。ご確認お願いいたします。"
                 }
               },
               {
                 "type": "divider"
-              }
+              },
             ]
