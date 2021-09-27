@@ -27,14 +27,14 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "issueにアサインされました。ご確認お願いいたします。"
+                  "text": "issueにアサインされました。"
                 }
               },
               {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "${{ steps.assignToIssue.outputs.mention }}"
+                  "text": "${{ steps.assignToIssue.outputs.mention }} ご確認お願いいたします。"
                 }
               },
               {
