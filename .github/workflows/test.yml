@@ -1,9 +1,7 @@
 name: "units-test"
 on:
-  pull_request:
-    types: [labeled]
-  # issues:
-  #   types: [assigned]
+  issues:
+    types: [assigned]
 
 jobs:
   build:
