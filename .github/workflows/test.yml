@@ -12,7 +12,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
-      - run: git status
-      - run: git branch
-      - run: pwd
-      - run: ls -la
+      - name: run hello action
+        uses: ./.github/actions/hello # Uses an action in the root directory
+        id: hello
+        with:
+          who-to-greet: 'Mona the Octocat'
