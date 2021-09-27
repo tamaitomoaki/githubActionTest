@@ -8,13 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Hello
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: main
-      - name: notification
+      - name: Slack Notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
-          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
+          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
         with:
           text: Hello, Slack!
