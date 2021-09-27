@@ -15,3 +15,4 @@ jobs:
       - run: git status
       - run: git branch
       - run: pwd
+      - run: ls -la
