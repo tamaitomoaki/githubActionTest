@@ -33,7 +33,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "${{ steps.hello.outputs.mention }}"
+                  "text": "${{ steps.assignToIssue.outputs.mention }}"
                 }
               },
               {
